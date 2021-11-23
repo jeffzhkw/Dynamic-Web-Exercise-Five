@@ -64,26 +64,44 @@ function App() {
 
   return (
     <div className="App">
-      <Header logout={logout} /> {/* state might impact, not data */}
+      {/* state might impact, not data */}
+      <Header logout={logout} loggedIn={loggedIn} />
       <Router>
         <Routes>
-          <Route path="/user/:id" element={<UserProfile />} />
+          <Route
+            path="/user/:id"
+            element={
+              loggedIn ? (
+                <UserProfile userInformation={userInformation} />
+              ) : (
+                <></>
+              )
+            }
+          />
           <Route
             path="/create"
             element={
-              <CreateUser
-                setLoggedIn={setLoggedIn}
-                setUserInformation={setUserInformation}
-              />
+              !loggedIn ? (
+                <CreateUser
+                  setLoggedIn={setLoggedIn}
+                  setUserInformation={setUserInformation}
+                />
+              ) : (
+                <></>
+              )
             }
           />
           <Route
             path="/"
             element={
-              <Login
-                setLoggedIn={setLoggedIn}
-                setUserInformation={setUserInformation}
-              />
+              !loggedIn ? (
+                <Login
+                  setLoggedIn={setLoggedIn}
+                  setUserInformation={setUserInformation}
+                />
+              ) : (
+                <></>
+              )
             }
           />
         </Routes>
