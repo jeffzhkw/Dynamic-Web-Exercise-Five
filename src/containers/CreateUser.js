@@ -25,14 +25,11 @@ function CreateUser({ setLoggedIn, setUserInformation }) {
           uid: user.uid,
           accessToken: user.accessToken,
         });
-        console.log({ user });
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.warn({ errorCode, errorMessage });
-        // ..
       });
   }, []);
 
