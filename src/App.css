@@ -30,7 +30,7 @@
 .form form {
   display: flex;
   flex-direction: column;
-  max-width: 500;
+  max-width: 500px;
 }
 
 .form input {
