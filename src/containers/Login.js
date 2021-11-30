@@ -3,6 +3,7 @@ import LoginForm from "../components/LoginForm";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Login({ setLoggedIn, setUserInformation }) {
+  //maintain a single function instance between renderings:
   const loginUser = useCallback((e) => {
     e.preventDefault(); //let us have more control over our form
 

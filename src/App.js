@@ -1,6 +1,11 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 //Firebase
 import { initializeApp } from "firebase/app"; // Import the functions you need from the SDKs you need
 // Your web app's Firebase configuration
@@ -43,8 +48,8 @@ function App() {
           setUserInformation({});
           setLoggedIn(false);
         }
+        setLoading(false);
       });
-      setLoading(false);
     }
   }, [appInitialized]);
 
@@ -60,7 +65,7 @@ function App() {
       });
   }
 
-  if (loading) return null;
+  if (loading || !appInitialized) return null;
 
   return (
     <div className="App">
@@ -74,7 +79,7 @@ function App() {
               loggedIn ? (
                 <UserProfile userInformation={userInformation} />
               ) : (
-                <></>
+                <Navigate to="/" />
               )
             }
           />
@@ -87,7 +92,7 @@ function App() {
                   setUserInformation={setUserInformation}
                 />
               ) : (
-                <></>
+                <Navigate to="/" />
               )
             }
           />
@@ -100,7 +105,7 @@ function App() {
                   setUserInformation={setUserInformation}
                 />
               ) : (
-                <></>
+                <Navigate to="/" />
               )
             }
           />

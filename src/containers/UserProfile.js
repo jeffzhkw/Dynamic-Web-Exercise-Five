@@ -1,6 +1,7 @@
 import React from "react";
 
 function UserProfile({ userInformation }) {
+  //any user's profile
   return (
     <div>
       <h1>User Profile</h1>
