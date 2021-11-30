@@ -106,7 +106,7 @@ function App() {
                   setUserInformation={setUserInformation}
                 />
               ) : (
-                <Navigate to="/" />
+                <Navigate to={`/user/${userInformation.uid}`} />
               )
             }
           />
