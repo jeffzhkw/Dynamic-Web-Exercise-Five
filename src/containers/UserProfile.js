@@ -3,7 +3,7 @@ import React from "react";
 function UserProfile({ userInformation }) {
   //any user's profile
   return (
-    <div>
+    <div className="pageWrapper">
       <h1>User Profile</h1>
       <p>Email: {userInformation.email}</p>
       <p>Name: {userInformation.displayName}</p>
